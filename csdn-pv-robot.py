@@ -39,7 +39,7 @@ def csdn_visit(urls):
             if resp.status_code != 200:
                 print('Invalid url:', page, "; current response:", resp)
                 continue
-            page_content = requests.get(page, headers=headers).text
+            page_content = resp.text
             soup = BeautifulSoup(page_content, features="html.parser")
             blog_title = str(soup.title.string)
             blog_title = blog_title[0:blog_title.rfind('_')]
